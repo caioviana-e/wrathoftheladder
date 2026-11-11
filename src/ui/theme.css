@@ -1,0 +1,160 @@
+:root {
+  --bg: #0a1220;
+  --bg-2: #101b2e;
+  --painel: #14223a;
+  --painel-2: #1b2c4a;
+  --borda: #2c4266;
+  --texto: #dbe7f5;
+  --texto-2: #9fb3c8;
+  --gelo: #8fd8ff;
+  --ouro: #e6c35c;
+  --ouro-2: #b8952f;
+  --vida: #3fbf5f;
+  --vida-bg: #1d3a26;
+  --perigo: #e0533d;
+
+  /* Recursos */
+  --furia: #c43a3a;
+  --energia: #f0d34a;
+  --mana: #3d7de0;
+  --runas: #6fc8d8;
+
+  /* Raridades */
+  --r-comum: #ffffff;
+  --r-incomum: #1eff00;
+  --r-rara: #2b8cff;
+  --r-epica: #a335ee;
+  --r-lendaria: #ff8000;
+
+  --raio: 10px;
+  --sombra: 0 6px 24px rgba(0, 0, 0, 0.45);
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: radial-gradient(ellipse at top, #16294a 0%, var(--bg) 60%) fixed;
+  background-color: var(--bg);
+  color: var(--texto);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+/* Títulos com fonte temática (cai para serifada do sistema sem internet) */
+h1,
+h2 {
+  font-family: 'Cinzel', Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+}
+
+::selection {
+  background: rgba(143, 216, 255, 0.35);
+}
+
+/* Entrada suave de telas e cartas */
+@keyframes surgir {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.surgir {
+  animation: surgir 0.35s ease-out both;
+}
+
+/* Barra de rolagem discreta */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #2c4266 transparent;
+}
+
+/* Acessibilidade: respeita "reduzir movimento" */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  border: 1px solid var(--borda);
+  background: var(--painel-2);
+  border-radius: 8px;
+  padding: 0.55rem 1rem;
+  transition:
+    background 0.15s,
+    border-color 0.15s,
+    transform 0.1s;
+}
+
+button:hover:not(:disabled) {
+  border-color: var(--gelo);
+  background: #22395e;
+}
+
+button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+button.primario {
+  background: linear-gradient(#d8b24c, #a9862b);
+  color: #1b1405;
+  border-color: #f0d68a;
+  font-weight: 700;
+}
+
+button.primario:hover:not(:disabled) {
+  background: linear-gradient(#ecc65e, #bb9634);
+  border-color: #fff0b8;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--gelo);
+  outline-offset: 2px;
+}
+
+.painel {
+  background: linear-gradient(180deg, var(--painel-2), var(--painel));
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: 1rem;
+}
+
+.ouro {
+  color: var(--ouro);
+}
+
+.sutil {
+  color: var(--texto-2);
+}
